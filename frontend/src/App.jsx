@@ -5,6 +5,7 @@ import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import Catalogo from './pages/Catalogo.jsx'
 import DetalleBonsai from './pages/DetalleBonsai.jsx'
+import Contacto from './pages/Contacto.jsx'
 import NoEncontrada from './pages/NoEncontrada.jsx'
 
 // Al cambiar de página el navegador conserva el scroll anterior; esto vuelve arriba.
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/bonsai/:id" element={<DetalleBonsai />} />
+            <Route path="/contacto" element={<Contacto />} />
             <Route path="*" element={<NoEncontrada />} />
           </Routes>
         </div>

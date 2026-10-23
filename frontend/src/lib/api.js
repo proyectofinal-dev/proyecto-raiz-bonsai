@@ -19,6 +19,8 @@ export async function pedirApi(ruta, opciones = {}) {
   if (!respuesta.ok) {
     const error = new Error(datos?.error || 'Algo salió mal. Intenta de nuevo en un momento.')
     error.status = respuesta.status
+    // En un 400 el backend indica qué campo falló (ej. { email: 'no es válido' }).
+    error.campos = datos?.campos
     throw error
   }
   return datos
