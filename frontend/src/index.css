@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+/* Paleta de marca como tokens de Tailwind v4: generan clases como bg-musgo-800
+   o text-tierra-600. Cambiar un color aquí lo cambia en toda la app. */
+@theme {
+  --color-musgo-50: #f2f6f1;
+  --color-musgo-100: #dfe9dc;
+  --color-musgo-600: #3d6b3f;
+  --color-musgo-700: #2f5532;
+  --color-musgo-800: #24432a;
+  --color-musgo-900: #1b3220;
+
+  --color-tierra-100: #f1e8dc;
+  --color-tierra-300: #d4bb98;
+  --color-tierra-500: #a67c52;
+  --color-tierra-600: #8a6440;
+  --color-tierra-800: #4e3824;
+
+  --color-arena: #faf8f4;
+
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+body {
+  @apply bg-arena font-sans text-stone-800 antialiased;
+}
