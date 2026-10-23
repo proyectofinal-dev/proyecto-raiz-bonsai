@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import bonsaisRoutes from './routes/bonsais.routes.js'
 import mensajesRoutes from './routes/mensajes.routes.js'
+import authRoutes from './routes/auth.routes.js'
 import { rutaNoEncontrada, manejarErrores } from './middleware/errores.js'
 
 const app = express()
@@ -22,6 +23,7 @@ app.get('/api/health', (req, res) => {
 
 app.use('/api/bonsais', bonsaisRoutes)
 app.use('/api/mensajes', mensajesRoutes)
+app.use('/api/auth', authRoutes)
 
 // Van al final: solo se ejecutan si ninguna ruta anterior respondió o si hubo un error.
 app.use(rutaNoEncontrada)
