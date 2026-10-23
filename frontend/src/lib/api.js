@@ -1,3 +1,5 @@
+import { cerrarSesion, obtenerToken } from './auth.js'
+
 // La URL del backend viene de una variable de entorno de Vite (VITE_API_URL):
 // en local apunta a localhost y en producción a Render, sin tocar el código.
 // Ojo: todo lo que empieza por VITE_ queda visible en el navegador, por eso
@@ -25,3 +27,29 @@ export async function pedirApi(ruta, opciones = {}) {
   }
   return datos
 }
+
+// Igual que pedirApi, pero con el token del admin. Si el backend responde 401
+// (token vencido o inválido), se cierra la sesión y se vuelve al login en vez
+// de dejar al admin viendo errores sin entender por qué.
+export async function pedirAdmin(ruta, opciones = {}) {
+  const token = obtenerToken()
+  try {
+    return await pedirApi(ruta, {
+      ...opciones,
+      headers: { ...opciones.headers, Authorization: `Bearer ${token}` },
+    })
+  } catch (error) {
+    if (error.status === 401) {
+      cerrarSesion()
+      window.location.hash = '#/admin/login'
+    }
+    throw error
+  }
+}
+
+// Atajo para enviar JSON (POST, PUT, PATCH).
+export const conJson = (method, cuerpo) => ({
+  method,
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(cuerpo),
+})
