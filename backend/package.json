@@ -7,10 +7,14 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "node --watch --env-file-if-exists=.env index.js"
+    "dev": "node --watch --env-file-if-exists=.env index.js",
+    "crear-admin": "node --env-file-if-exists=.env scripts/crear-admin.js",
+    "probar-conexion": "node --env-file-if-exists=.env scripts/probar-conexion.js"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
   }
 }
