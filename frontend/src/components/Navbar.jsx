@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 const ENLACES = [
   { a: '/', texto: 'Inicio' },
   { a: '/catalogo', texto: 'Catálogo' },
+  { a: '/contacto', texto: 'Contacto' },
 ]
 
 const claseEnlace = ({ isActive }) =>

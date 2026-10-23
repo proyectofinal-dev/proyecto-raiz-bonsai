@@ -60,6 +60,14 @@ export default function DetalleBonsai() {
               </div>
             ))}
           </dl>
+
+          {/* El nombre viaja en la URL para que el formulario lo precargue. */}
+          <Link
+            to={`/contacto?bonsai=${encodeURIComponent(bonsai.nombre)}`}
+            className="mt-10 self-start rounded-full bg-musgo-800 px-7 py-3 text-white transition-colors hover:bg-musgo-700"
+          >
+            Me interesa este bonsái
+          </Link>
         </div>
       </div>
     </Pagina>

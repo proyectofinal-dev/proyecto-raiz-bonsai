@@ -14,6 +14,7 @@ export default function Footer() {
         <nav className="flex flex-col gap-2 text-sm">
           <Link to="/" className="hover:text-white">Inicio</Link>
           <Link to="/catalogo" className="hover:text-white">Catálogo</Link>
+          <Link to="/contacto" className="hover:text-white">Contacto</Link>
         </nav>
         <p className="text-sm text-musgo-100/80 sm:text-right">
           © {ANIO} Raíz · Vivero de bonsáis
