@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { HashRouter, Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
+import Asistente from './components/Asistente.jsx'
 import Home from './pages/Home.jsx'
 import Catalogo from './pages/Catalogo.jsx'
 import DetalleBonsai from './pages/DetalleBonsai.jsx'
@@ -40,6 +41,7 @@ export default function App() {
           </Routes>
         </div>
         <Footer />
+        <Asistente />
       </div>
     </HashRouter>
   )
