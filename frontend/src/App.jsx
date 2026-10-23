@@ -6,6 +6,9 @@ import Home from './pages/Home.jsx'
 import Catalogo from './pages/Catalogo.jsx'
 import DetalleBonsai from './pages/DetalleBonsai.jsx'
 import Contacto from './pages/Contacto.jsx'
+import Login from './pages/admin/Login.jsx'
+import Panel from './pages/admin/Panel.jsx'
+import RutaProtegida from './components/admin/RutaProtegida.jsx'
 import NoEncontrada from './pages/NoEncontrada.jsx'
 
 // Al cambiar de página el navegador conserva el scroll anterior; esto vuelve arriba.
@@ -31,6 +34,8 @@ export default function App() {
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/bonsai/:id" element={<DetalleBonsai />} />
             <Route path="/contacto" element={<Contacto />} />
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin" element={<RutaProtegida><Panel /></RutaProtegida>} />
             <Route path="*" element={<NoEncontrada />} />
           </Routes>
         </div>

@@ -18,6 +18,7 @@ export default function Footer() {
         </nav>
         <p className="text-sm text-musgo-100/80 sm:text-right">
           © {ANIO} Raíz · Vivero de bonsáis
+          <Link to="/admin" className="mt-2 block text-xs text-musgo-100/50 hover:text-white">Acceso equipo</Link>
         </p>
       </div>
     </footer>
