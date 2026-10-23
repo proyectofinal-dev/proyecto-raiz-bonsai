@@ -44,3 +44,31 @@ export async function crearMensaje(req, res) {
 
   res.status(201).json({ ok: true, id: rows[0].id })
 }
+
+// ---------- Privados (requieren token) ----------
+
+export async function listarMensajes(req, res) {
+  // No leídos primero y, dentro de cada grupo, los más recientes arriba.
+  const { rows } = await pool.query(
+    `select id, nombre, email, telefono, bonsai_interes, mensaje, leido, creado_en
+     from mensajes order by leido, creado_en desc`,
+  )
+  res.json(rows)
+}
+
+export async function marcarLeido(req, res) {
+  const id = Number(req.params.id)
+  if (!Number.isInteger(id) || id <= 0) {
+    return res.status(400).json({ error: 'El id debe ser un número entero positivo' })
+  }
+
+  // Por defecto marca como leído; enviar { leido: false } permite deshacerlo.
+  const leido = req.body?.leido !== false
+
+  const { rows } = await pool.query(
+    'update mensajes set leido = $1 where id = $2 returning id, leido',
+    [leido, id],
+  )
+  if (rows.length === 0) return res.status(404).json({ error: 'Mensaje no encontrado' })
+  res.json(rows[0])
+}
