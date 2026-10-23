@@ -6,7 +6,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node --env-file-if-exists=.env index.js",
     "dev": "node --watch --env-file-if-exists=.env index.js",
     "crear-admin": "node --env-file-if-exists=.env scripts/crear-admin.js",
     "probar-conexion": "node --env-file-if-exists=.env scripts/probar-conexion.js"
